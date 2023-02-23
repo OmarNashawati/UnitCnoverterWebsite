@@ -1,0 +1,13 @@
+:root {
+	font: 20px/1.2 'Itim', cursive;
+}
+
+body,
+body * {
+	margin: 		 unset;
+	box-sizing: 	 border-box;
+	padding: 		 unset;
+	font-size:		 unset;
+	color: 			 unset;
+	text-decoration: unset;
+}

@@ -1,0 +1,135 @@
+
+/* S I D E B A R*/
+#sidebar{
+    height: 100%;
+    width: 250px;
+    padding: 30px 10px;
+    background-color: #191919;
+    overflow-y: scroll;
+
+}
+
+#topbar{
+    display: none;
+}
+
+#logo_div h2{
+    color: #FFF;
+    font-size: 25px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar_btn{
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.sidebar_btn:hover{
+    background-color: #ffffff4b;
+}
+
+.sidebar_btn.active{
+    color: #191919;
+    background-color: #FFF;
+}
+
+
+@media(max-width:799px){
+    #sidebar{
+        display: none;
+    }
+
+    #topbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 10%;
+        min-height: 55px;
+        width: 100%;
+        background-color: #191919;
+        padding: 0 20px;
+    }
+
+    #topbar_btns_container{
+        padding: 10px 0;
+        font-size: 18px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        color: #FFF;
+        text-align: center;
+        background-color: transparent;
+
+        appearance: none;
+        padding-left: 20px;
+        background-image: url('./dropdown.png');
+        background-repeat: no-repeat;
+        background-position: left 0 center;
+        background-size: 1em;
+    }
+
+    #topbar_btns_container option{
+        color: #191919;
+    }
+
+
+
+    #logo_div h2{
+        color: #FFF;
+        font-size: 25px;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
+
+
+@media(max-width:499px){
+    #logo_div h2{
+        font-size: 18px;
+    }
+
+    #topbar_btns_container{
+        padding: 10px 5px;
+        font-size: 13px;
+
+        appearance: none;
+        padding-left: 20px;
+        background-image: url('./dropdown.png');
+        background-repeat: no-repeat;
+        background-position: left 0 center;
+        background-size: 1em;
+    }
+}
+
+
+
+/* S C R O L L B A R */
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #191919;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
