@@ -162,14 +162,8 @@ async function convert(){
 
     //convertData
     try {
-        
-        if(getActiveCatagoryFromLocalStorage() === 'Temperature'){
-            const {data} = await axios(`/api/v1/convertT?catagory=${getActiveCatagoryFromLocalStorage()}&input_value=${input_value}&input_unit=${input_unit}&output_unit=${output_unit}`)        
-            document.getElementById('output_element').value = data.result
-        }else{ 
-            const {data} = await axios(`/api/v1/convert?catagory=${getActiveCatagoryFromLocalStorage()}&input_value=${input_value}&input_unit=${input_unit}&output_unit=${output_unit}`)        
-            document.getElementById('output_element').value = data.result
-        }
+        const {data} = await axios(`/api/v1/convert?catagory=${getActiveCatagoryFromLocalStorage()}&input_value=${input_value}&input_unit=${input_unit}&output_unit=${output_unit}`)        
+        document.getElementById('output_element').value = data.result
     } catch (error) {
         console.log(error)
     }
