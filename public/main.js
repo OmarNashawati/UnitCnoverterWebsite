@@ -17,7 +17,7 @@ const start = async () => {
     
     getCatagoriesFromDB()
 
-    // E V E N T S
+    // E V E N T S   L I S T E N E R S
     const main_container = document.getElementById('main_container')
     main_container.addEventListener('click',function(e){
         const target = e.target
@@ -29,13 +29,23 @@ const start = async () => {
         }
     
         if(target.id == 'convert_btn'){
-            converter()
+            convert()
         }
         
         if(target.id == 'swap_btn'){
             swap()
         }
     })
+
+    main_container.addEventListener('input',function(e){
+        const target = e.target
+        if(target.id === 'input_element'){
+            if(target.value !== ''){
+                convert()
+            }
+        }
+    })
+
     main_container.addEventListener('change',function(e){
         const target = e.target
         
@@ -138,7 +148,7 @@ function getActiveCatagoryFromLocalStorage(){
 }
 
 //C O N V E R T E R
-async function converter(){
+async function convert(){
     //getDataFormUI
     const input_value = document.getElementById('input_element').value
     const input_unit = document.getElementById('input_dropdown_catagory').value
@@ -146,12 +156,7 @@ async function converter(){
     
     //validation
     if(input_value === ''){
-        const input_alert_element = document.getElementById('input_alert_element')
-        input_alert_element.classList.add('visible')
-        input_alert_element.innerText = 'Please inter input value'
-        setTimeout(() => {
-            input_alert_element.classList.remove('visible')
-        },3000)
+        showAlarm()
         return
     }
 
@@ -168,6 +173,15 @@ async function converter(){
     } catch (error) {
         console.log(error)
     }
+}
+
+function showAlarm(){
+    const input_alert_element = document.getElementById('input_alert_element')
+    input_alert_element.classList.add('visible')
+    input_alert_element.innerText = 'Please inter input value'
+    setTimeout(() => {
+        input_alert_element.classList.remove('visible')
+    },3000)
 }
 
 function swap(){
@@ -191,4 +205,6 @@ function swap(){
     
     input_unit_element.value = output_unit
     output_unit_element.value = input_unit
+
+    convert()
 }
